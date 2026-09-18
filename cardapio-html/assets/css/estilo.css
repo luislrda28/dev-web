@@ -48,6 +48,7 @@ header .container {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid var(--border);
+    padding-block: 1rem;
 }
 
 header .brand {
@@ -75,7 +76,7 @@ header .brand p {
 }
 
 header .cart-button {
-    display: flex;
+    display: flex;  
     flex: 0 0 auto;
     border: 1px solid var(--border);
     width: 2.75rem;
@@ -102,7 +103,6 @@ nav {
     top: 5rem;
     z-index: 10;
 }
-
 nav ul {
     display: flex;
     list-style: none;
@@ -113,11 +113,9 @@ nav ul {
     overscroll-behavior-inline: contain;
     scrollbar-width: thin;
 }
-
 nav ul li {
     flex: 0 0 auto;
 }
-
 nav ul a {
     border: 1px solid var(--border);
     border-radius: 999px;
@@ -235,39 +233,35 @@ section article button {
     align-self: center;
     margin-right: 1rem;
 } 
-
 main aside {
     order: -1;
     align-self: start;
     border: 1px solid var(--border);
-    border-radius: 0.8rem;
+    border-radius: 0.8rem;    
     background-color: #fff;
     box-shadow: 0 10px 26px rgb(36 33 31 / 8%);
 }
-
 main aside h2 {
     padding: 1rem;
-    font-size: 1rem;
+    font-size: 1rem; 
 }
-
 main aside .cart-empty {
     text-align: center;
     padding-block: 2rem;
     border-top: 1px solid var(--border);
-
-    p:first-of-type {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text);
-        margin-top: 0.6rem;
-    }
-
-    p:last-of-type {
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        margin-top: 0.25rem;
-    }
 }
+main aside .cart-empty p:first-of-type {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);    
+    margin-top: 0.6rem;
+}
+main aside .cart-empty p:last-of-type {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    color: var(--text-muted);
+}
+
 
 /***********
 * FOOTER
@@ -290,11 +284,12 @@ footer .container {
     text-align: center;
 } */
 
-/***********
-* RESPONSIVIDADE
-***********/
 
-/* celulares maiores (480px) */
+/****************
+* RESPONSIVIDADE
+*****************/
+
+/* Celulares maiores >= 480px */
 @media (min-width: 30rem) {
     header .brand p {
         display: block;
@@ -305,12 +300,11 @@ footer .container {
     }
 }
 
-/* tablets (768px) */
+/*Tablets >= 768px */
 @media (min-width: 48rem) {
     main section {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-
     footer .container {
         flex-direction: row;
         align-items: center;
@@ -318,18 +312,18 @@ footer .container {
         gap: 2rem;
     }
 }
-/* desktop (1024px) */
+
+/* Desktop >= 1024px */
 @media (min-width: 64rem) {
     main {
         grid-template-columns: minmax(0, 1fr) 330px;
-
     }
-
+   
     main section {
         grid-column: 1;
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-
+    
     main aside {
         order: initial;
         grid-column: 2;
