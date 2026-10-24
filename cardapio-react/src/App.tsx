@@ -1,14 +1,22 @@
 import { Footer } from "./components/layouts/footer"
 import { Header as Cabecario } from "./components/layouts/header"
-import { NavigationBar } from "./components/layouts/navigationBar"
+import { NavigationBar } from "./components/layouts/navigation"
+import { categories } from "./data/categories"
 
 function App() {
+
+  function handleSelectCategory(alias: string) {
+    alert('Categoria: ' + alias);
+  }
+
   return (
     <>
       <Cabecario />
 
-      <NavigationBar />
-
+      <NavigationBar categories={categories} 
+                     activeCategory="todos" 
+                     onSelectCategory={handleSelectCategory} 
+      />
       <main>
         <section>
           <header>
