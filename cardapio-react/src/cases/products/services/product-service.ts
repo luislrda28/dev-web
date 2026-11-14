@@ -1,7 +1,11 @@
-import { products } from "../dtos/product"
+import { api } from "../../../lib/axios"
+import type { Product } from "../dtos/product";
+
+const ENDPOINT = "/products?key=e66fc020"
 
 export const ProductService = {
-    ListAll() {
-        return products;
+    async ListAll(): Promise<Product[]> {
+        const result = await api.get<Product[]>(ENDPOINT);
+        return result.data;
     }
 }

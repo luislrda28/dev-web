@@ -9,7 +9,8 @@ import { UseProducts } from "./cases/products/hooks/use-product"
 function App() {
 
   const [activeCategory, setActiveCategory] = useState<string>("todos");
-  const products = UseProducts();
+  const { products, loading, error } = UseProducts();
+  const visibleProducts = activeCategory === "todos" ? products : products.filter(product => product.category === activeCategory);
 
   function handleSelectCategory(alias: string) {
     setActiveCategory(alias);
@@ -27,10 +28,18 @@ function App() {
         <section>
           <header>
             <h2>Produtos</h2>
-            <p>Categoria <span id="selected-category">{activeCategory}</span>: 10 itens</p>
+            <p>Categoria <span id="selected-category">{activeCategory}</span>: {visibleProducts.length} itens</p>
           </header>
 
-          {products.map((product) => (
+          {loading && (
+              <p className="panel-loading">Carregando...</p>
+          )}
+
+          {error && (
+              <p className="panel-error">{error}</p>
+          )}
+
+          {visibleProducts.map((product) => (
             <ProductCard product={product} />
           ))}
         </section>
